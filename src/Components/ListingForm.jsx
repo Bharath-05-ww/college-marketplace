@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Sparkles, Plus, IndianRupee, Type, FileText } from "lucide-react";
+import "../css/ListingForm.css";
 
 function ListingForm({ fetchListings }) {
   const [title, setTitle] = useState("");
@@ -13,10 +14,12 @@ function ListingForm({ fetchListings }) {
     setIsSubmitting(true);
 
     try {
+      const token = localStorage.getItem("token");
       await fetch("http://localhost:5000/listings", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+           Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({
           title,
@@ -39,7 +42,7 @@ function ListingForm({ fetchListings }) {
   return (
     <div className="panel">
       <div className="panel-header">
-        <Sparkles size={20} className="panel-icon" style={{ color: "var(--accent)" }} />
+        <Sparkles size={20} className="panel-icon" />
         <h2 className="panel-title">Smart List Co-Pilot</h2>
       </div>
 

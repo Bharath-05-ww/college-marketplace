@@ -1,4 +1,5 @@
 import { Cpu, Sparkles } from "lucide-react";
+import "../css/ListingCard.css";
 
 function ListingCard({ listing }) {
   // Simple client-side visual tag logic based on keywords
@@ -31,14 +32,7 @@ function ListingCard({ listing }) {
             <Cpu size={12} />
             {rating}
           </span>
-          <span style={{ 
-            fontSize: "11px", 
-            background: "rgba(255, 255, 255, 0.04)", 
-            padding: "2px 8px", 
-            borderRadius: "12px", 
-            border: "1px solid var(--border)",
-            color: "var(--text-secondary)"
-          }}>
+          <span className="category-tag">
             {category}
           </span>
         </div>
@@ -55,7 +49,7 @@ function ListingCard({ listing }) {
           <span className="card-price">₹{listing.price}</span>
         </div>
         
-        <div style={{ display: "flex", alignItems: "center", gap: "4px", fontSize: "11px", color: "var(--accent)" }}>
+        <div className="card-match-tag">
           <Sparkles size={12} />
           <span>Smart Match</span>
         </div>
