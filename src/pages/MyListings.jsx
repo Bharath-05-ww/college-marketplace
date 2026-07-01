@@ -40,6 +40,7 @@ function MyListings() {
           <ListingCard
             key={listing.id}
             listing={listing}
+            onListingChange={fetchMyListings}
           />
         ))
       )}
